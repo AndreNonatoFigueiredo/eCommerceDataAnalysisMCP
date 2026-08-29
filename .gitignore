@@ -1,3 +1,5 @@
 .claude/settings.local.json
 agent/
 data/skills/
+__pycache__/
+*.pyc
