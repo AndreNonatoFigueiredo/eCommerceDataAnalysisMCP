@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+/*
+ * Design system do dashboard de e-commerce.
+ * Ver dashboard/TASKS.md > "Design System" para a documentação completa
+ * (paleta, tipografia, espaçamento, estilo de cards) que qualquer
+ * especialista deve seguir.
+ *
+ * Decisão: dashboard é LIGHT MODE ONLY (sem dark mode). Isso remove uma
+ * fonte de inconsistência entre os 3 especialistas trabalhando em paralelo.
+ * Não reintroduza dark mode sem alinhar com os outros times primeiro.
+ */
+
+:root {
+  --background: #f9f9f7; /* page plane */
+  --foreground: #0b0b0b; /* primary ink */
+
+  /* Cores de destaque por seção (também usadas como cor de série 1 em
+   * gráficos daquela seção). Ver lib/colors.ts para os valores em TS. */
+  --accent-vendas: #2a78d6; /* azul */
+  --accent-pricing: #eb6834; /* laranja */
+  --accent-clientes: #4a3aa7; /* violeta */
+
+  /* Tokens de superfície/cromo de gráfico e cards (paleta validada) */
+  --surface-card: #ffffff;
+  --border-subtle: rgba(11, 11, 11, 0.1);
+  --text-secondary: #52514e;
+  --text-muted: #898781;
+  --gridline: #e1e0d9;
+
+  /* Status (fixo, nunca reaproveitado para séries) */
+  --status-good: #0ca30c;
+  --status-warning: #fab219;
+  --status-serious: #ec835a;
+  --status-critical: #d03b3b;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent-vendas: var(--accent-vendas);
+  --color-accent-pricing: var(--accent-pricing);
+  --color-accent-clientes: var(--accent-clientes);
+  --color-surface-card: var(--surface-card);
+  --color-border-subtle: var(--border-subtle);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/* Números grandes (KPIs, hero figures) usam algarismos proporcionais.
+ * Reservar tabular-nums só para colunas que precisam alinhar (tabelas). */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
